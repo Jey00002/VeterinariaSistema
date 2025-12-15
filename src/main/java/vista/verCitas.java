@@ -16,14 +16,14 @@ public class verCitas extends javax.swing.JInternalFrame {
      */
     public verCitas() {
         initComponents();
-        // Configuraciones de ventana
+        
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
         setMaximizable(true);
         setTitle("Agenda de Citas");
         
-        mostrarTabla(); // <--- Cargar datos al abrir
+        mostrarTabla(); 
     }
 
     /**
@@ -39,7 +39,7 @@ public class verCitas extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblCitas = new javax.swing.JTable();
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); 
         jLabel1.setText("HISTORIAL DE CITAS");
 
         jtblCitas.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,13 +98,12 @@ private void mostrarTabla() {
         
         jtblCitas.setModel(modelo);
 
-        // SQL AVANZADO: Unimos Citas + Mascotas + Servicios
+       
         String sql = "SELECT c.fecha_hora, m.nombre AS mascota, s.nombre AS servicio, c.estado, c.motivo " +
                      "FROM citas c " +
                      "INNER JOIN mascotas m ON c.id_mascota = m.id_mascota " +
                      "INNER JOIN servicios s ON c.id_servicio = s.id_servicio " +
-                     "ORDER BY c.fecha_hora DESC"; // Ordenar por fecha (las más nuevas primero)
-
+                     "ORDER BY c.fecha_hora DESC"; 
         String[] datos = new String[5];
 
         try {
