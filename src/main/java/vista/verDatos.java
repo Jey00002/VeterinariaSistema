@@ -6,7 +6,7 @@ package vista;
 
 import config.Conexion;
 import java.sql.*;
-import javax.swing.table.DefaultTableModel; // <--- Necesario para que la tabla funcione
+import javax.swing.table.DefaultTableModel; 
 import javax.swing.JOptionPane;
 
 public class verDatos extends javax.swing.JInternalFrame {
@@ -17,7 +17,7 @@ public class verDatos extends javax.swing.JInternalFrame {
     public verDatos() {
     initComponents();
 
-    // Propiedades para que funcione como ventana interna
+   
     setClosable(true);
     setIconifiable(true);
     setResizable(true);
@@ -95,11 +95,11 @@ private void mostrarTabla() {
         modelo.addColumn("Especie");
         modelo.addColumn("Raza");
         modelo.addColumn("Fecha Nac.");
-        modelo.addColumn("Dueño"); // ¡Aquí saldrá el nombre del dueño!
+        modelo.addColumn("Dueño");
         
-        jtblDatos.setModel(modelo); // Le ponemos este modelo a tu tabla visual
+        jtblDatos.setModel(modelo); 
 
-        // SQL: Unimos la tabla Mascotas con la tabla Dueños
+        
         String sql = "SELECT m.id_mascota, m.nombre, m.especie, m.raza, m.fecha_nacimiento, d.nombre " +
                      "FROM mascotas m INNER JOIN duenos d ON m.id_dueno = d.id_dueno";
 
@@ -112,15 +112,15 @@ private void mostrarTabla() {
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                datos[0] = rs.getString(1); // ID
-                datos[1] = rs.getString(2); // Nombre Mascota
-                datos[2] = rs.getString(3); // Especie
-                datos[3] = rs.getString(4); // Raza
-                datos[4] = rs.getString(5); // Fecha
-                datos[5] = rs.getString(6); // Nombre Dueño (Gracias al JOIN)
+                datos[0] = rs.getString(1); 
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3); 
+                datos[3] = rs.getString(4); 
+                datos[4] = rs.getString(5); 
+                datos[5] = rs.getString(6); 
                 modelo.addRow(datos);
             }
-            jtblDatos.setModel(modelo); // Actualizamos la tabla
+            jtblDatos.setModel(modelo); 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar: " + e.getMessage());
         }
