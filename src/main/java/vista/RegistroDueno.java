@@ -16,10 +16,9 @@ public class RegistroDueno extends javax.swing.JInternalFrame {
      */
     public RegistroDueno() {
         initComponents();
-        setClosable(true);    // Botón X
-        setIconifiable(true); // Botón _
-        setResizable(true);   // Redimensionar
-        setMaximizable(true); // Maximizar
+        setClosable(true);    
+        setIconifiable(true); 
+        setMaximizable(true); 
         setTitle("Registro de Clientes");
     }
 
@@ -163,7 +162,7 @@ public class RegistroDueno extends javax.swing.JInternalFrame {
         pst.executeUpdate();
         JOptionPane.showMessageDialog(null, "¡Dueño registrado!");
         
-        // Limpiar
+      
         jtxtNombre.setText("");
         jtxtApellidos.setText("");
         jtxtTelefono.setText("");
