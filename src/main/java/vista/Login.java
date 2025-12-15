@@ -15,7 +15,6 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        // Esta línea centra la ventana en la pantalla
         this.setLocationRelativeTo(null);
     }
 
@@ -133,22 +132,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtUsuarioActionPerformed
 
     private void jbtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnIngresarActionPerformed
-        // 1. Capturamos lo que escribió el usuario
+        
         String usuario = jtxtUsuario.getText();
-        // Usa .getText() en vez de .getPassword()
         String password = jtxtPassword.getText();
-    // 2. Validar que no estén vacíos
     if (usuario.isEmpty() || password.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(null, "Escribe tu usuario y contraseña");
         return;
     }
 
-    // 3. Preguntar a la Base de Datos
+    
     try {
-        // Conectamos
+       
         java.sql.Connection cn = new config.Conexion().getConexion();
         
-        // La pregunta SQL: "¿Existe alguien con este user Y este pass?"
+       
         String sql = "SELECT * FROM usuarios WHERE username = ? AND password = ?";
         java.sql.PreparedStatement pst = cn.prepareStatement(sql);
         
@@ -158,19 +155,15 @@ public class Login extends javax.swing.JFrame {
         java.sql.ResultSet rs = pst.executeQuery();
 
         if (rs.next()) {
-            // --- ¡ACCESO CONCEDIDO! --- 🔓
-            
-            // 1. Abrir la ventana Grande (El Sistema)
             Sistema ventanaSistema = new Sistema();
             ventanaSistema.setVisible(true);
             
-            // 2. Matar esta ventana chica (El Login)
             this.dispose(); 
             
         } else {
-            // --- ¡ACCESO DENEGADO! --- 🚫
+          
             javax.swing.JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
-            jtxtPassword.setText(""); // Borramos la clave para que intente de nuevo
+            jtxtPassword.setText("");
         }
 
     } catch (Exception e) {
