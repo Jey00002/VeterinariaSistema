@@ -16,12 +16,12 @@ public class RegistroMascota extends javax.swing.JInternalFrame {
      */
     public RegistroMascota() {
         initComponents();
-        // Propiedades de ventana interna
+       
         setClosable(true);
         setIconifiable(true);
         setTitle("Registro de Mascotas");
         
-        cargarDuenos(); // <--- ¡No olvides esto!
+        cargarDuenos(); 
     }
 
     /**
@@ -55,7 +55,7 @@ public class RegistroMascota extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Dueño");
 
-        jbtnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbtnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); 
         jbtnGuardar.setText("Guardar");
         jbtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +152,7 @@ public class RegistroMascota extends javax.swing.JInternalFrame {
         pst.setInt(5, dueno.getId_dueno());
 
         pst.executeUpdate();
-        JOptionPane.showMessageDialog(null, "¡Mascota Guardada! 🐶");
+        JOptionPane.showMessageDialog(null, "Mascota Guardada! ");
         
         jtxtNombre.setText("");
         jtxtRaza.setText("");
