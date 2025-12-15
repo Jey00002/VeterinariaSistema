@@ -15,7 +15,6 @@ public class Sistema extends javax.swing.JFrame {
      */
     public Sistema() {
         initComponents();
-        // ESTA ES LA LÍNEA MÁGICA ✨
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
 
@@ -57,10 +56,10 @@ public class Sistema extends javax.swing.JFrame {
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        menuReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/list-symbol-of-three-items-with-dots_icon-icons.com_72994.png"))); // NOI18N
+        menuReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/list-symbol-of-three-items-with-dots_icon-icons.com_72994.png"))); 
         menuReporte.setText("Reporte");
 
-        menuVerPacietes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/view_data_icon_215854.png"))); // NOI18N
+        menuVerPacietes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/view_data_icon_215854.png"))); 
         menuVerPacietes.setText("Ver pacientes");
         menuVerPacietes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +68,7 @@ public class Sistema extends javax.swing.JFrame {
         });
         menuReporte.add(menuVerPacietes);
 
-        menuVerCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1492790922-20list_84170.png"))); // NOI18N
+        menuVerCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1492790922-20list_84170.png"))); 
         menuVerCitas.setText("verCitas");
         menuVerCitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,10 +79,10 @@ public class Sistema extends javax.swing.JFrame {
 
         jMenuBar1.add(menuReporte);
 
-        menuGestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/backup_1_29638 (1).png"))); // NOI18N
+        menuGestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/backup_1_29638 (1).png"))); 
         menuGestion.setText("Gestion ");
 
-        MenuAgendarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agenda_notebook_icon_124098.png"))); // NOI18N
+        MenuAgendarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agenda_notebook_icon_124098.png"))); 
         MenuAgendarCita.setText("Agendar cita");
         MenuAgendarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +91,7 @@ public class Sistema extends javax.swing.JFrame {
         });
         menuGestion.add(MenuAgendarCita);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/factura.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/factura.png"))); 
         jMenuItem2.setText("Generar Boleta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,10 +102,10 @@ public class Sistema extends javax.swing.JFrame {
 
         jMenuBar1.add(menuGestion);
 
-        menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_folder_white_13776.png"))); // NOI18N
+        menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_folder_white_13776.png"))); 
         menuRegistro.setText("Registro");
 
-        menuNuevoDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_interface_profile_add_follow_user_icon_259525.png"))); // NOI18N
+        menuNuevoDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_interface_profile_add_follow_user_icon_259525.png")));
         menuNuevoDueño.setText("Nuevo Dueño");
         menuNuevoDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +114,7 @@ public class Sistema extends javax.swing.JFrame {
         });
         menuRegistro.add(menuNuevoDueño);
 
-        menuNuevaMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_insert_database_16696.png"))); // NOI18N
+        menuNuevaMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_insert_database_16696.png"))); 
         menuNuevaMascota.setText("Nueva Mascota");
         menuNuevaMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +123,7 @@ public class Sistema extends javax.swing.JFrame {
         });
         menuRegistro.add(menuNuevaMascota);
 
-        menuNuevoServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-51_icon-icons.com_73853.png"))); // NOI18N
+        menuNuevoServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-51_icon-icons.com_73853.png"))); 
         menuNuevoServicio.setText("Nuevo Servicio");
         menuNuevoServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,10 +134,10 @@ public class Sistema extends javax.swing.JFrame {
 
         jMenuBar1.add(menuRegistro);
 
-        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/systemshutdown_103390.png"))); // NOI18N
+        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/systemshutdown_103390.png"))); 
         menuSalir.setText("Cerrar Sesion");
 
-        Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/4213459-common-door-exit-logout-out-signout_115411.png"))); // NOI18N
+        Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/4213459-common-door-exit-logout-out-signout_115411.png"))); 
         Login.setText("Salir");
         Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,9 +166,9 @@ public class Sistema extends javax.swing.JFrame {
 
     private void menuNuevaMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNuevaMascotaActionPerformed
         RegistroMascota ventana = new RegistroMascota();
-    jdkpEscritorio.add(ventana); // O jdtpEscritorio si así se llama
+    jdkpEscritorio.add(ventana); 
     
-    // Centrar
+   
     int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
     int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
     ventana.setLocation(x, y);
@@ -181,9 +180,9 @@ public class Sistema extends javax.swing.JFrame {
         
         
         RegistroDueno ventana = new RegistroDueno();
-    jdkpEscritorio.add(ventana); // La metemos al escritorio azul
+    jdkpEscritorio.add(ventana); 
     
-    // Centrarla
+   
     int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
     int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
     ventana.setLocation(x, y);
@@ -195,9 +194,9 @@ public class Sistema extends javax.swing.JFrame {
         
         
         RegistroServicio ventana = new RegistroServicio();
-        jdkpEscritorio.add(ventana); // O jdtpEscritorio
+        jdkpEscritorio.add(ventana); 
 
-        // Centrar
+        
         int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
         int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
         ventana.setLocation(x, y);
@@ -206,26 +205,22 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_menuNuevoServicioActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-// 1. Crear la ventana de Boleta
+
     GenerarBoleta ventana = new GenerarBoleta();
-    
-    // 2. Agregarla al escritorio (tu fondo azul)
     jdkpEscritorio.add(ventana);
-    
-    // 3. Centrarla bonita
+
     int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
     int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
     ventana.setLocation(x, y);
-    
-    // 4. Mostrarla
+
     ventana.setVisible(true);       
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void MenuAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendarCitaActionPerformed
         RegistroCita ventana = new RegistroCita();
-    jdkpEscritorio.add(ventana); // Agregar al escritorio azul
+    jdkpEscritorio.add(ventana); 
     
-    // Centrar
+  
     int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
     int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
     ventana.setLocation(x, y);
@@ -238,27 +233,23 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginActionPerformed
 
     private void menuVerPacietesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVerPacietesActionPerformed
-        // 1. Crear la instancia de tu ventana
+        
     verDatos ventana = new verDatos();
     
-    // 2. IMPORTANTE: Agregarla al escritorio azul
-    // (Asegúrate de que tu escritorio se llame 'jdtpEscritorio' o 'escritorio')
     jdkpEscritorio.add(ventana); 
-    
-    // 3. Centrarla (Opcional, para que se vea bonita)
+ 
     java.awt.Dimension desktopSize = jdkpEscritorio.getSize();
     java.awt.Dimension frameSize = ventana.getSize();
     ventana.setLocation((desktopSize.width - frameSize.width)/2, (desktopSize.height - frameSize.height)/2);
     
-    // 4. ¡HACERLA VISIBLE! (Sin esto no sale)
+   
     ventana.setVisible(true);
     }//GEN-LAST:event_menuVerPacietesActionPerformed
 
     private void menuVerCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVerCitasActionPerformed
         verCitas ventana = new verCitas();
-    jdkpEscritorio.add(ventana); // Recuerda usar jdtpEscritorio o escritorio
-    
-    // Centrar
+    jdkpEscritorio.add(ventana);
+
     int x = (jdkpEscritorio.getWidth() - ventana.getWidth()) / 2;
     int y = (jdkpEscritorio.getHeight() - ventana.getHeight()) / 2;
     ventana.setLocation(x, y);
