@@ -100,38 +100,31 @@ public class RegistroServicio extends javax.swing.JInternalFrame {
     private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
 
   
-    // Validamos si el objeto seleccionado es nulo o si el precio está vacío
+    
     if (jtxtNombre.getText().isEmpty() || jtxtPrecio.getText().isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(null, "El nombre y el precio son obligatorios.");
         return;
     }
 
-    // 2. Conectar
     config.Conexion con = new config.Conexion();
     Connection cn = con.getConexion();
 
-    // 3. SQL
     String sql = "INSERT INTO servicios (nombre, precio, descripcion) VALUES (?, ?, ?)";
 
     try {
         java.sql.PreparedStatement pst = cn.prepareStatement(sql);
         
-        // --- AQUÍ ESTÁ EL CAMBIO ---
-        // Usamos .getText() porque es una caja de texto normal
         pst.setString(1, jtxtNombre.getText());
         
-        // Convertimos el texto del precio a número (Double)
         pst.setDouble(2, Double.parseDouble(jtxtPrecio.getText())); 
-        
-        // Descripción
+
         pst.setString(3, jtxtDescripcion.getText());
 
-        // ¡Ejecutar!
         pst.executeUpdate();
         
         JOptionPane.showMessageDialog(null, "¡Servicio registrado con éxito! ?");
         
-        // Limpiar campos
+      
         jtxtNombre.setText("");
         jtxtPrecio.setText("");
         jtxtDescripcion.setText("");
