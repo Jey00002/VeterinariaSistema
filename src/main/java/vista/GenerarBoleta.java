@@ -15,18 +15,15 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
     /**
      * Creates new form GenerarBoleta
      */
-    double precioFinal = 0.0; // Variable para guardar el total
+    double precioFinal = 0.0; 
 
     public GenerarBoleta() {
         initComponents();
-        
-        // Configuración de ventana
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
         setTitle("Caja / Facturación");
         
-        // ¡AQUÍ LLAMAMOS A LOS MÉTODOS PARA LLENAR LAS LISTAS!
         cargarClientes();
         cargarServicios();
     }
@@ -160,7 +157,7 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
 
     private void jbtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCalcularActionPerformed
      try {
-        // 1. Obtener Servicio y Precio
+    
         modelo.Servicio servicio = (modelo.Servicio) jcbnServicio.getSelectedItem();
         
         if (servicio == null) {
@@ -168,7 +165,6 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
             return;
         }
 
-        // 2. Obtener Cantidad
         if (jtxtCantidad.getText().isEmpty()) {
              javax.swing.JOptionPane.showMessageDialog(null, "Ingresa una cantidad");
              return;
@@ -176,12 +172,10 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
         int cantidad = Integer.parseInt(jtxtCantidad.getText());
         double precioUnitario = servicio.getPrecio();
 
-        // 3. CÁLCULOS PERÚ (IGV 18%) 🇵🇪
-        double importeTotal = precioUnitario * cantidad; // Lo que paga el cliente
-        double subtotal = importeTotal / 1.18;           // Valor sin IGV
-        double igv = importeTotal - subtotal;            // El impuesto
-
-        // 4. Mostrar en la etiqueta (Formato bonito con 2 decimales)
+        double importeTotal = precioUnitario * cantidad; 
+        double subtotal = importeTotal / 1.18;           
+        double igv = importeTotal - subtotal;            
+         
         String texto = String.format("<html>Subtotal: S/. %.2f<br>IGV (18%%): S/. %.2f<br><b>TOTAL A PAGAR: S/. %.2f</b></html>", 
                                      subtotal, igv, importeTotal);
         
@@ -244,20 +238,18 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
     private void cargarClientes() {
         try {
             Connection cn = new Conexion().getConexion();
-            // OJO: Aquí pedimos datos a la tabla DUENOS
             String sql = "SELECT * FROM duenos";
             PreparedStatement pst = cn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             
-            jcbnCliente.removeAllItems(); // Limpiamos la lista de clientes
+            jcbnCliente.removeAllItems(); 
             
             while(rs.next()) {
                 Dueno d = new Dueno();
                 d.setId_dueno(rs.getInt("id_dueno"));
                 d.setNombre(rs.getString("nombre"));
                 d.setApellidos(rs.getString("apellidos"));
-                
-                // Lo metemos en la lista jcmbCliente
+              
                 jcbnCliente.addItem(d);
             }
         } catch (Exception e) {
@@ -268,20 +260,18 @@ public class GenerarBoleta extends javax.swing.JInternalFrame {
     private void cargarServicios() {
         try {
             Connection cn = new Conexion().getConexion();
-            // OJO: Aquí pedimos datos a la tabla SERVICIOS
+            
             String sql = "SELECT * FROM servicios";
             PreparedStatement pst = cn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             
-            jcbnServicio.removeAllItems(); // Limpiamos la lista de servicios
+            jcbnServicio.removeAllItems(); 
             
             while(rs.next()) {
                 Servicio s = new Servicio();
                 s.setId_servicio(rs.getInt("id_servicio"));
                 s.setNombre(rs.getString("nombre"));
-                s.setPrecio(rs.getDouble("precio")); // Importante traer el precio
-                
-                // Lo metemos en la lista jcmbServicio
+                s.setPrecio(rs.getDouble("precio")); 
                 jcbnServicio.addItem(s);
             }
         } catch (Exception e) {
