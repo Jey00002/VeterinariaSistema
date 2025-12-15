@@ -16,12 +16,9 @@ public class RegistroCita extends javax.swing.JInternalFrame {
      */
     public RegistroCita() {
         initComponents();
-        // Propiedades de la ventana interna
         setClosable(true);
         setIconifiable(true);
         setTitle("Agendar Nueva Cita");
-        
-        // ¡LLENAR LAS LISTAS AL ABRIR!
         cargarMascotas();
         cargarServicios();
     }
@@ -105,13 +102,12 @@ public class RegistroCita extends javax.swing.JInternalFrame {
 
     private void jbtnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgendarCitaActionPerformed
                                                   
-        // 1. Validar fecha
+        
         if (jtxtFecha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingresa la fecha (AAAA-MM-DD)");
             return;
         }
 
-        // 2. RECUPERAR OBJETOS SELECCIONADOS
         Mascota mascotaSeleccionada = (Mascota) jcbxMascota.getSelectedItem();
         Servicio servicioSeleccionado = (Servicio) jcbxServicio.getSelectedItem();
 
@@ -120,25 +116,23 @@ public class RegistroCita extends javax.swing.JInternalFrame {
             return;
         }
 
-        // 3. CONECTAR Y GUARDAR
         try {
             Connection cn = new Conexion().getConexion();
             
-            // Insertamos en la tabla 'citas'
             String sql = "INSERT INTO citas (fecha_hora, motivo, estado, id_mascota, id_servicio) VALUES (?, ?, ?, ?, ?)";
             
             PreparedStatement pst = cn.prepareStatement(sql);
             
-            pst.setString(1, jtxtFecha.getText());       // Fecha
-            pst.setString(2, "Cita Programada");        // Motivo automático
-            pst.setString(3, "Pendiente");              // Estado inicial
-            pst.setInt(4, mascotaSeleccionada.getId_mascota()); // ID Mascota (Oculto en el objeto)
-            pst.setInt(5, servicioSeleccionado.getId_servicio()); // ID Servicio (Oculto en el objeto)
+            pst.setString(1, jtxtFecha.getText());       
+            pst.setString(2, "Cita Programada");        
+            pst.setString(3, "Pendiente");              
+            pst.setInt(4, mascotaSeleccionada.getId_mascota()); 
+            pst.setInt(5, servicioSeleccionado.getId_servicio());
 
             pst.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "¡Cita Agendada con Éxito! 📅");
-            jtxtFecha.setText(""); // Limpiar
+            JOptionPane.showMessageDialog(null, "Cita Agendada con Éxito!");
+            jtxtFecha.setText(""); 
             
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al agendar: " + e.getMessage());
@@ -156,7 +150,7 @@ public class RegistroCita extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtxtFecha;
     // End of variables declaration//GEN-END:variables
 
-    // --- MÉTODOS DE CARGA (Pégalos al final) ---
+   
 
     private void cargarMascotas() {
         try {
@@ -165,13 +159,11 @@ public class RegistroCita extends javax.swing.JInternalFrame {
             jcbxMascota.removeAllItems();
             
             while(rs.next()) {
-                // Creamos el objeto Mascota con sus datos
+              
                 Mascota m = new Mascota();
                 m.setId_mascota(rs.getInt("id_mascota"));
                 m.setNombre(rs.getString("nombre"));
                 m.setRaza(rs.getString("raza"));
-                
-                // Lo agregamos a la lista (se verá su nombre gracias al toString)
                 jcbxMascota.addItem(m); 
             }
         } catch (Exception e) { e.printStackTrace(); }
